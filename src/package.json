@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ant-design-vue": "^1.5.3",
+    "element-ui": "^2.13.1",
+    "vue": "^2.6.11"
+  }
 }
