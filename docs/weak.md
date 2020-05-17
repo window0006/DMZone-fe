@@ -12,7 +12,10 @@
   * 变量对象
 * 调用栈的形成
 * 垃圾回收机制
-
+* module
+  * cmd for nodejs
+    * exports
+    * module.exports
 
 ### 原型链
 ```js
@@ -29,7 +32,7 @@ Object.prototype.__proto__ === null
 * decorator
 * iterator
 * proxy
-* 
+
 ### promise
 * promise + generator = async await
 * [事件循环](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
@@ -46,12 +49,14 @@ Object.prototype.__proto__ === null
 * `immutable`解决了什么问题
 * `Saga`发布订阅机制是怎么实现的
 * [最佳实践](https://github.com/sorrycc/blog/issues/1)umi
+* [React新的理念](https://segmentfault.com/a/1190000020110166)
   
 ### vue
 * `v-model`是怎么实现的双向绑定的
 * 指令系统是怎么实现的
 * `template`里依赖是怎么收集起来的
 * `computed`是怎么做到的
+* [学习](https://www.bilibili.com/video/BV1d4411v7UX)
 
 ## 工程
 cli
@@ -110,5 +115,14 @@ webpack
     * call stack empty -> check job/task queue -> call stack push job/task -> job/task run
 
 ## 数据结构算法
+* 树
+* 图
+
 ### 排序
+* 快排
 ### 动态规划（并不理解）
+* 路径计算
+
+### 贪心算法
+
+### ？？对算法 不懂的地方太多了
