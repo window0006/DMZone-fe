@@ -40,6 +40,7 @@ scrope模块：`@${scrope}/${pkgname}`，安装后将被安装在`node_modules/@
 
 ### npm link
 > 软链：
+* 一般用于本地调试
 将当前目录link到全局
 ```shell
 npm link

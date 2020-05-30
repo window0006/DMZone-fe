@@ -49,3 +49,6 @@ yarn serve
 
 
 ### 路由设计
+
+## vue的一些原理
+![vue-flow](../assets/vue-update-flow.png)

@@ -16,6 +16,14 @@
   * cmd for nodejs
     * exports
     * module.exports
+  * amd
+    * define
+    * 运行时加载
+  * umd（前面一个函数）
+    * cmd + amd
+  * es module
+    * 编译时加载，遇到import时生成模块引用，到运行时根据引用去被加载的模块里取值
+  
 
 ### 原型链
 ```js
@@ -39,12 +47,17 @@ Object.prototype.__proto__ === null
 * [事件循环标准](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)
   * 单线程的js，调用栈不为空时是阻塞渲染的
   * web api 操作完成的时机将回调放入task queue
+  * loop
+    * marcotask 浏览器产生的回调
+    * microtask promise回调
+    * update rendering 会在这个时候执行raf的回调
+![event-loop](../assets/the-event-loop.png)
 
 ## mvvm框架原理
 
 ### React、Redux、Router、Saga
 * `state`更新的过程是怎么样的？为什么`setState`是异步的
-* `getFileDecorator`是怎么实现双向绑定的
+* antd的`getFileDecorator`是怎么实现双向绑定的
 * `connect`做了什么
 * `immutable`解决了什么问题
 * `Saga`发布订阅机制是怎么实现的
@@ -120,9 +133,13 @@ webpack
 
 ### 排序
 * 快排
-### 动态规划（并不理解）
-* 路径计算
+### 动态规划
+* 缓存 + 递归（递推）
 
 ### 贪心算法
+* 难以求得最优解
+* 选择一个子问题（局部）的最优解以此推出总问题的最优解
 
-### ？？对算法 不懂的地方太多了
+### 最短路径算法
+
+### ？？其他经典算法 对算法 不懂的地方太多了
