@@ -15,3 +15,4 @@
 可以用`component`属性替代的属性
 * `render`：`render-prop`的由来
 * `children`：返回一个总是会被渲染的子组件？
+
