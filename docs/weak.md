@@ -48,9 +48,9 @@ Object.prototype.__proto__ === null
   * 单线程的js，调用栈不为空时是阻塞渲染的
   * web api 操作完成的时机将回调放入task queue
   * loop
-    * marcotask 浏览器产生的回调
-    * microtask promise回调
-    * update rendering 会在这个时候执行raf的回调
+    * marcotask 浏览器BOM方法产生的回调
+    * microtask promise回调，中间产生的microTask也会被放进同一个队列
+    * update rendering 会在这个时候执行raf的回调（重新渲染前）
 ![event-loop](../assets/the-event-loop.png)
 
 ## mvvm框架原理
@@ -109,7 +109,8 @@ webpack
 * HTTP
   * HTTPS
   * HTTP2.0
-* 浏览器的请求限制
+  * HTTP 3.0
+* 浏览器的网络进程是什么，都干了啥
 
 ## 浏览器基础、v8原理
 * 浏览器进程
@@ -128,7 +129,16 @@ webpack
     * call stack empty -> check job/task queue -> call stack push job/task -> job/task run
 
 ## 数据结构算法
+* 栈
+* 链表
+* 哈希表
 * 树
+  * 二叉树
+  * 平衡二叉树
+  * 二叉查找树
+  * 红黑树
+  * B树
+  * B+树
 * 图
 
 ### 排序
@@ -140,6 +150,10 @@ webpack
 * 难以求得最优解
 * 选择一个子问题（局部）的最优解以此推出总问题的最优解
 
-### 最短路径算法
-
 ### ？？其他经典算法 对算法 不懂的地方太多了
+
+## 杂谈自己
+
+我总想找找自己到底欠缺了什么，总说想要学习什么，前端的知识点，关注浏览器api，关注node能做的事情，查漏补缺就好了。
+
+不要给自己设限了，真正的web开发不能只是前端的开发。

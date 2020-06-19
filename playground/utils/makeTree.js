@@ -28,7 +28,7 @@ class Node {
     }
     return false;
   }
-  
+
 }
 
 function makeTree(array) {
@@ -47,7 +47,7 @@ function makeTree(array) {
       return;
     }
     parentNode.setChild(node);
-    
+
     if (parentNode.right) {
       parentNode = parentNode.left;
     }
@@ -57,32 +57,32 @@ function makeTree(array) {
 }
 
 var temp = [];
-var fn = function(root) {
-    let leftMax;
-    let rightMax;
+var walkTree = function (root) {
+  let leftMax;
+  let rightMax;
 
-    if (root.left) {
-        leftMax = fn(root.left);
-    }
-    if (root.right) {
-        rightMax = fn(root.right);
-    }
-    
-    const passMax = Math.max.apply(null, [
-        root.val,
-        root.val + (rightMax || 0),
-        root.val + (leftMax || 0)
-    ].filter(i => i !== undefined));
-    // 得出经过当前节点的最大路径和
-    const currentMax = Math.max(passMax, root.val + (rightMax || 0) + (leftMax || 0));
-    
-    temp.push(currentMax);
+  if (root.left) {
+    leftMax = walkTree(root.left);
+  }
+  if (root.right) {
+    rightMax = walkTree(root.right);
+  }
 
-    return passMax;
+  const passMax = Math.max.apply(null, [
+    root.val,
+    root.val + (rightMax || 0),
+    root.val + (leftMax || 0)
+  ].filter(i => i !== undefined));
+  // 得出经过当前节点的最大路径和
+  const currentMax = Math.max(passMax, root.val + (rightMax || 0) + (leftMax || 0));
+
+  temp.push(currentMax);
+
+  return passMax;
 }
-var maxPathSum = function(root) {
-    temp = [];
-    fn(root);
+var maxPathSum = function (root) {
+  temp = [];
+  walkTree(root);
 
-    return Math.max.apply(null, temp)
+  return Math.max.apply(null, temp)
 };
