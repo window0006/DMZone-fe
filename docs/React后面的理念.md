@@ -17,3 +17,12 @@ try {
 
 ## 程序控制权
 
+## 一些理念
+* UI = fn(data)
+* vnode = render(state)
+
+* 组件
+
+* 声明式编程
+jq是命令式的，他提供api，使用者调用api
+react是声明式的，我们提供render方法，提供生命周期方法，react调用我们实现的方法
