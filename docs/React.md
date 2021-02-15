@@ -110,7 +110,7 @@ renderer会在渲染组件之前设置`React.__currentDispatcher`属性
 ### antd的使用
 * 样式引入问题
 * 按需引入问题
-要配合`babel`来做。先使用`ts-loader`处理tsx，再使用`babel-loader`处理，`.babelrc`文件内还需要配置`plugins`字段，使用`import`插件：
+要配合`babel`来做。先使用`ts-loader`处理tsx，再使用`babel-loader`做es5转译，`.babelrc`文件内还需要配置`plugins`字段，使用`babel-plugin-import`插件：
 ```json
 {
   // ...
@@ -128,6 +128,18 @@ renderer会在渲染组件之前设置`React.__currentDispatcher`属性
   ]
 }
 
+```
+
+`babel-plugin-import`插件会将`import`语句转换：
+```jsx
+import { Button } from 'antd';
+ReactDOM.render(<Button>xxxx</Button>);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _button = require('antd/lib/button');
+require('antd/lib/button/style/css');
+ReactDOM.render(<_button>xxxx</_button>);
 ```
 
 ### dmz项目

@@ -41,14 +41,18 @@ scrope模块：`@${scrope}/${pkgname}`，安装后将被安装在`node_modules/@
 ### npm link
 > 软链：
 * 一般用于本地调试
-将当前目录link到全局
+比如主项目依赖某个子项目，`package.json`中会添加依赖，比如`"${childrenModuleName}": "^1.0.1"`，
+首先将子项目link到全局
 ```shell
+cd ~/workspace/${childrenDir}
 npm link
 ```
-将path指定给的目录link到当前目录
+再进入主项目目录，将
 ```shell
-npm link path
+cd ~/workspace/${main}
+npm link ${childrenModuleName}
 ```
+注意`childrenDir`和`childrenModuleName`的区别，使用`link`命令的时候需要用模块名，也就是最后会添加到`package.json`的dependencies中的包的名字。
 
 ### npm unlink
 移除当期那目录对path的软链
@@ -83,7 +87,5 @@ scripts: {
 npm shrinkwrap
 ```
 
-生成`package-lock.json`，解决小版本不一致的问题。
-
-## yarn
+生成`package-lock.json`，解决小版本不一致的问题。如果有lock文件，会优先使用lock文件中的版本安装依赖，也就是如果你此时在`package.json`手动修改了某个依赖版本，是不会生效的，会以lock的版本为准。
 

@@ -1,10 +1,5 @@
 # React Router 尽知尽会
 
-## react-router
-
-## react-router-dom
-
-### route组件
 > 无论何时你需要在匹配某个路径的时候绘制一个组件，那么就可以使用Route组件
 属性：
 * `path`
@@ -36,12 +31,12 @@ window.addEventListener('hashchange', function() {
 ```js
 button.onclick = (e) => {
   window.location.hash = this.path;
-  e.preventDefault();
+  e.preventDefault(); // 这句是用来干什么的？
 }
 ```
 而对于borwser router，浏览器`window`对象提供了[popstate](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate)事件，虽然叫`pop`，但是无论是点击浏览器的后退还是前进按钮，都可以触发到。当然，要通过`history.pushState()`方法修改的session history stack才可以，否则就会刷新浏览器页面。
 
-除了手动点击浏览器前进/后退按钮，`history.back()`、`history.forward()`和`history.go()`方法也能触发`popstate`事件。这里要注意`hisotry.pushState()`和`history.replaceState()`方法的调用是不会触发`popstate`事件的。（看起来是只有不修改其内部`session history`的方法才会触发这个事件
+除了手动点击浏览器前进/后退按钮，`history.back()`、`history.forward()`和`history.go()`方法也能触发`popstate`事件。这里要注意`hisotry.pushState()`和`history.replaceState()`方法的调用是不会触发`popstate`事件的。（看起来是只有不修改其内部`session history`的方法才会触发这个事件。
 
 小结一下，这些都是浏览器提供的非传统刷新跳转页面地址的api，是web单页应用跳转路由的基础。
 
@@ -108,12 +103,12 @@ class Router extends EventEmitter {
 
 export default Router;
 ```
-这个模块实例提供了一个事件中心，提供了`push`和`replace`方法，核心能力是修改浏览器地址栏，同时维护一个session stack作为页面栈，供后续模块使用。
+这个模块实例提供了一个事件中心，提供了`push`和`replace`方法，核心能力是修改浏览器地址栏，同时维护一个`session stack`作为页面栈，供后续模块使用。
 
-后续围绕这个核心模型，我们再打造周边能力，比如url params（路径解析模块）功能，`<Switch />`，`<Route />`组件、hooks等，但这些其实和核心能力是没有关系的，是api的部分。
+后续围绕这个核心模型，我们可以再打造周边能力，比如url params（路径解析模块）功能，`<Switch />`，`<Route />`组件、`hooks`等。
 
 ### react-router-dom的使用
-web项目中一般用react-router-dom，而不直接使用react-router
+web项目中一般用`react-router-dom`，而不直接使用`react-router`
 ```jsx
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 <BrowserRouter>
@@ -125,7 +120,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 ```
 看看BrowserRouter做了什么
 
-直接渲染了react-router提供的Router组件，传入了history的createBrowserHistory
+BrowserRouter直接渲染了react-router提供的Router组件，传入了history的createBrowserHistory
 
 再看react-router提供的Router组件，只是将各种属性塞进了RouterContext和HistoryContext，再直接渲染了children
 ```jsx

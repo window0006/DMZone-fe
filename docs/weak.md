@@ -71,11 +71,22 @@ Object.prototype.__proto__ === null
 * `computed`是怎么做到的
 * [学习](https://www.bilibili.com/video/BV1d4411v7UX)
 
-## 工程
-cli
-脚手架
-devServer
-webpack
+## 前端工程
+本地构建脚框架
+* devServer
+  * webpack
+  * cli
+  * ts
+  * lint
+  * git hook
+  * test
+  * lint
+* 远端构建
+  * git hook
+  * build
+  * bundle version管理
+  * ci / cd
+* 迭代管理、git、类basement平台
 
 ### 想要解决什么问题？
 * 技术栈脱离浏览器限制
