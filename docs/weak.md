@@ -64,29 +64,33 @@ Object.prototype.__proto__ === null
 * [最佳实践](https://github.com/sorrycc/blog/issues/1)umi
 * [React新的理念](https://segmentfault.com/a/1190000020110166)
   
-### vue
+### vue（远不止这些）
 * `v-model`是怎么实现的双向绑定的
 * 指令系统是怎么实现的
-* `template`里依赖是怎么收集起来的
-* `computed`是怎么做到的
+* `template`里依赖是怎么收集起来的（解析模板的时候通过getter收集）
+* `computed`是怎么做到的（太笼统了）
 * [学习](https://www.bilibili.com/video/BV1d4411v7UX)
 
-## 前端工程
-本地构建脚框架
+## 工程
+* cli工具（项目脚手架，一键前端项目）
+
+### dev（P0）
 * devServer
-  * webpack
-  * cli
-  * ts
-  * lint
-  * git hook
-  * test
-  * lint
-* 远端构建
-  * git hook
-  * build
-  * bundle version管理
-  * ci / cd
-* 迭代管理、git、类basement平台
+  * 用法
+  * hot module replacement用法、原理
+* 多项目之间dev
+  * alias实现多项目源码调试
+  * monorepo用法
+* 线上问题dev，启用live devServer
+* eslint
+* commit hook（husky）
+* React路由按需加载、组件按需加载
+* 组件库按需加载
+  * babel-plugin-import用法、原理
+
+### CI/CD（P1）
+* jenkins
+* 容器技术
 
 ### 想要解决什么问题？
 * 技术栈脱离浏览器限制
